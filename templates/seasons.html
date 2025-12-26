@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ show }} - Saisons</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>📺 {{ show }}</h1>
+
+<ul>
+{% for season in seasons %}
+    <li>
+        <a href="/series/{{ show }}/{{ season }}">{{ season }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+<div class="back-container">
+    <a href="/series" class="back-button">⬅ Retour</a>
+</div>
+
+</body>
+</html>

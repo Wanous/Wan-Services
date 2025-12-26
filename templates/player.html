@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>▶ {{ name }}</h1>
+
+<video controls width="100%">
+{% if type == "movie" %}
+    <source src="/video/movie/{{ name }}" type="video/mp4">
+{% else %}
+    <source src="/video/episode/{{ show }}/{{ season }}/{{ name }}" type="video/mp4">
+{% endif %}
+    Votre navigateur ne supporte pas la vidéo HTML5.
+</video>
+
+<br><br>
+<div class="back-container">
+    <a href="/services" class="back-button">⬅ Services</a>
+</div>
+</body>
+</html>
+
