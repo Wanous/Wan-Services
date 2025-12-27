@@ -117,6 +117,10 @@ h2, h1 span {
     transform: scale(1.05);
 }
 
+.season_selector .back-button{
+    left:260px;                   /* sidebar width (220px) + margin */
+}
+
 /* =======================
    HUB PAGE
 ======================= */
@@ -257,5 +261,10 @@ h2, h1 span {
     .episode-btn {
         width: 100%;
     }
+
+    .season_selector .back-button{
+        left: 15px; 
+        top: 70px;                    /* sidebar height (50px) + margin */
+}
 }
 

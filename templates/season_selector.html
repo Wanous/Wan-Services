@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="/static/css/style.css">
 
-<body>
+<body class="season_selector">
     
 <h1>{{ series_name }}</h1>
 
@@ -33,7 +33,7 @@
     {% endfor %}
 </div>
 
-<a href="javascript:history.back() || '{{ url_for('movies') }}'" style="left: 260px;"  class="back-button">⬅ Back</a> <!-- sidebar width (220px) + margin -->
+<a href="javascript:history.back() || '{{ url_for('movies') }}'"  class="back-button">⬅ Back</a> 
 
 <script>
 const seasonSelect = document.getElementById("season-select");
