@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wan services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2>Services: </h2>
+            <div class="logoBase">
+                <img style="display: none;"src="{{ url_for('static', filename='images/logo.png') }}" alt="Wan logo">
+            </div>
+            <ul class="nav-links">
+                <li class="{% if active_page == 'movies' %}active{% endif %}">
+                    <a href="{{ url_for('movies') }}">Movies</a>
+                </li>
+                <li class="{% if active_page == 'series' or active_page=='season_selection'%}active{% endif %}">
+                    <a href="{{ url_for('series') }}">Series</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Search bar -->
+
+        {% if active_page in ['movies', 'series'] %}
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Research...">
+        </div>
+        {% endif %}
+
+        <!-- Search bar sript-->
+
+        <script>
+            const searchInput = document.getElementById("search-input");
+
+            searchInput?.addEventListener("input", () => {
+                const query = searchInput.value.toLowerCase();
+                const cards = document.querySelectorAll(".card");
+
+                cards.forEach(card => {
+                    const title = card.innerText.toLowerCase();
+                    card.style.display = title.includes(query) ? "" : "none";
+                });
+            });
+        </script>
+
+        <!-- Main content -->
+        <main class="content">
+            {% block content %}
+            <!-- Each page injects its content here -->
+            {% endblock %}
+        </main>
+    </div>
+
+
+</body>
+</html>

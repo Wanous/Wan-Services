@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Séries</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/style.css">
+
 <body class="series">
 
-<h1>📺 Séries</h1>
+<h1><span>Series</span></h1>
 
 <div class="grid">
 {% for show in shows %}
     <a class="card" href="/series/{{ show.name }}">
         {% if show.cover %}
-            <img src="{{ show.cover }}">
+            <img class="poster" src="{{ show.cover }}">
         {% else %}
-            <div class="placeholder">📺</div>
+            <img  class="poster" src="/static/images/placeholder.png" alt="Placeholder">
         {% endif %}
         <div class="title">{{ show.name }}</div>
     </a>
 {% endfor %}
 </div>
-
-<div class="back-container" >
-    <a href="/services" class="back-button">⬅ Retour</a>
-</div>
-
 </body>
-</html>
-
+{% endblock %}
 

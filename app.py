@@ -1,7 +1,7 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, jsonify
 import os
 
-BASE_DIR = "/media/movies"
+BASE_DIR = "services/data/"
 FILMS_DIR = os.path.join(BASE_DIR, "Films")
 SERIES_DIR = os.path.join(BASE_DIR, "Series")
 
@@ -12,10 +12,6 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("index.html")
-
-@app.route("/services")
-def services():
-    return render_template("services.html")
 
 # -------- FILMS --------
 
@@ -32,7 +28,7 @@ def movies():
                     "title": name,
                     "cover": cover if os.path.exists(os.path.join(FILMS_DIR, cover)) else None
                 })
-    return render_template("movies.html", movies=movies)
+    return render_template("movies.html", movies=movies, active_page='movies')
 
 
 @app.route("/play/movie/<name>")
@@ -55,7 +51,53 @@ def series():
                 "name": show,
                 "cover": "/video/series-cover/" + show if os.path.exists(cover) else None
             })
-    return render_template("series.html", shows=shows)
+    return render_template("series.html", shows=shows, active_page='series')
+
+@app.route("/series/<show>")
+def season_selector(show):
+    show_path = os.path.join(SERIES_DIR, show)
+
+    if not os.path.exists(show_path):
+        return "Series not available", 404
+
+    seasons = sorted([
+        d for d in os.listdir(show_path)
+        if os.path.isdir(os.path.join(show_path, d))
+    ])
+
+    first_season = seasons[0] if seasons else None
+    episodes = []
+
+    if first_season:
+        season_path = os.path.join(show_path, first_season)
+        episodes = sorted([
+            f for f in os.listdir(season_path)
+            if f.endswith(".mp4")
+        ])
+
+    return render_template(
+        "season_selector.html",
+        series_name=show,
+        seasons=seasons,
+        first_season=first_season,
+        episodes=episodes,
+        active_page="season_selection"
+    )
+
+
+@app.route("/series/<show>/episodes/<season>")
+def get_episodes(show, season):
+    season_path = os.path.join(SERIES_DIR, show, season)
+
+    if not os.path.exists(season_path):
+        return jsonify({"episodes": []})
+
+    episodes = sorted([
+        f for f in os.listdir(season_path)
+        if f.endswith(".mp4")
+    ])
+
+    return jsonify({"episodes": episodes})
 
 @app.route("/video/series-cover/<show>")
 def series_cover(show):
@@ -64,17 +106,6 @@ def series_cover(show):
         "cover.jpg"
     )
 
-@app.route("/series/<show>")
-def seasons(show):
-    path = os.path.join(SERIES_DIR, show)
-    seasons = os.listdir(path)
-    return render_template("seasons.html", show=show, seasons=seasons)
-
-@app.route("/series/<show>/<season>")
-def episodes(show, season):
-    path = os.path.join(SERIES_DIR, show, season)
-    episodes = os.listdir(path)
-    return render_template("episodes.html", show=show, season=season, episodes=episodes)
 
 @app.route("/play/episode/<show>/<season>/<episode>")
 def play_episode(show, season, episode):

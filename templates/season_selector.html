@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/style.css">
+
+<body>
+    
+<h1>{{ series_name }}</h1>
+
+<label for="season-select">Season :</label>
+<select id="season-select">
+    {% if seasons %}
+        {% for season in seasons %}
+        <option value="{{ season }}" {% if season == first_season %}selected{% endif %}>
+            {{ season }}
+        </option>
+        {% endfor %}
+    {% else %}
+        <option disabled selected>Aucune saison disponible</option>
+    {% endif %}
+</select>
+
+<div id="episodes-container">
+    {% for episode in episodes %}
+    <a href="{{ url_for('play_episode',
+                        show=series_name,
+                        season=first_season,
+                        episode=episode) }}"
+       class="episode-btn">
+        {{ episode }}
+    </a>
+    {% endfor %}
+</div>
+
+<a href="javascript:history.back() || '{{ url_for('movies') }}'" style="left: 260px;"  class="back-button">⬅ Back</a> <!-- sidebar width (220px) + margin -->
+
+<script>
+const seasonSelect = document.getElementById("season-select");
+const episodesContainer = document.getElementById("episodes-container");
+
+seasonSelect?.addEventListener("change", () => {
+    const season = seasonSelect.value;
+
+    fetch(`/series/{{ series_name }}/episodes/${season}`)
+        .then(res => res.json())
+        .then(data => {
+            episodesContainer.innerHTML = "";
+            data.episodes.forEach(ep => {
+                const a = document.createElement("a");
+                a.className = "episode-btn";
+                a.textContent = ep;
+                a.href = `/play/episode/{{ series_name }}/${season}/${ep}`;
+                episodesContainer.appendChild(a);
+            });
+        });
+});
+</script>
+</body>
+{% endblock %}

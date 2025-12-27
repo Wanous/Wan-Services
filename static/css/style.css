@@ -1,0 +1,261 @@
+/* =======================
+         GLOBAL
+======================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h2, h1 span {
+    text-decoration: underline;
+    text-decoration-color: #FF235E;
+}
+
+
+/* =======================
+   GRID FOR THE CARDS
+======================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Desktop : 5 films */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    place-content: center;
+}
+
+/* =======================
+   CARDS FILMS / SERIES
+======================= */
+.card {
+    background: #181818;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 3px solid #FF235E;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #FF235E;
+}
+
+/* =======================
+   POSTER (IMAGE OR PLACEHOLDER)
+======================= */
+.poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;     /* ratio */
+    position: relative;
+    overflow: hidden;
+    background: #333;
+}
+
+/* Image */
+.poster img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;        
+    display: block;
+    max-width: none;
+    max-height: none;
+}
+
+
+/* =======================
+   TITLE
+======================= */
+.title {
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* =======================
+   RETURN BUTTON
+======================= */
+.back-button {
+    position: fixed;       /* floating, always visible */
+    top: 15px;            
+    left: 15px;            
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #181818;
+    border: 3px solid #FF235E;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    z-index: 1000;         /* above all content */
+    transition: background 0.2s, transform 0.2s;
+}
+
+.back-button:hover {
+    background-color: #FF235E;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* =======================
+   HUB PAGE
+======================= */
+.hub {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    display: none;          /* No logo */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    z-index: 2;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.hub-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.description {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 40px;
+}
+
+.main-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #FF235E;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 8px;
+}
+
+/* =======================
+   SEASONS PAGE
+======================= */
+
+/* Combobox seasons */
+#season-select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 3px solid #FF235E;
+    background-color: #181818;
+    color: #fff;
+    outline: none;
+    appearance: none; 
+}
+
+/* Episodes container */
+#episodes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* Episodes buttons */
+.episode-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 3px solid #FF235E;
+    background-color: #181818;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+/* Hover: Episodes buttons */
+.episode-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #FF235E;
+    background-color: #FF235E;
+    color: #fff;
+}
+
+/* =======================
+   SMARTPHONE (2 COLONNES)
+======================= */
+@media (max-width: 800px) {
+
+    /* ---- HUB ---- */
+    .logo {
+        width: 200px;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #0f0f0f;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .main-button {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 25px;
+    }
+
+    /* ---- GRID ---- */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    /* ---- SEASONS PAGE ---- */
+    #episodes-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #season-select {
+        max-width: 100%;
+    }
+
+    .episode-btn {
+        width: 100%;
+    }
+}
+

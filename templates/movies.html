@@ -1,32 +1,27 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Films</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="/static/css/style.css">
+
 <body class="movies">
 
-<h1>🎥 Films</h1>
+<h1><span> Movies </span></h1>
 
 <div class="grid">
 {% for movie in movies %}
     <a class="card" href="/play/movie/{{ movie.file }}">
         {% if movie.cover %}
-            <img src="/video/movie/{{ movie.cover }}">
+            <img class="poster" src="/video/movie/{{ movie.cover }}">
         {% else %}
-            <div class="placeholder">🎬</div>
+            <img  class="poster" src="/static/images/placeholder.png" alt="Placeholder">
         {% endif %}
         <div class="title">{{ movie.title }}</div>
     </a>
 {% endfor %}
 </div>
-
-<div class="back-container" >
-    <a href="/services" class="back-button">⬅ Retour</a>
-</div>
-
 </body>
-</html>
+
+{% endblock %}
 
 
