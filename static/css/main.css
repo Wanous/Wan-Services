@@ -111,7 +111,7 @@ body, html {
 /* =======================
         SMARTPHONE
 ======================= */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .container {
         flex-direction: column;
     }
@@ -124,6 +124,10 @@ body, html {
         flex-direction: row;
         overflow-x: auto;
         padding: 10px;
+    }
+
+    .sidebar h2{
+        display: none;
     }
 
     .sidebar .nav-links {
