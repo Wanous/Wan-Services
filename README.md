@@ -1,5 +1,8 @@
 # Wan Services
 
+![Wan services Banner](assets/images/Banniere_WanServices.png)
+
+
 Wan Services is a local multimedia web server that allows you to stream movies and TV series to any device connected to your local network.
 
 ## Features
