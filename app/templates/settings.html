@@ -2,7 +2,9 @@
 {% block content %}
 <link rel="stylesheet" href="/static/css/style.css">
 
-<h1>Settings</h1>
+<body class="settings"></body>
+
+<h1><span>Settings</span></h2>
 
 <form method="POST" action="/settings/save">
     <label>
@@ -23,12 +25,9 @@
 
 <hr>
 
-<form method="POST" action="/settings/restart">
-    <button type="submit">Apply and restart</button>
-</form>
-
 <form method="POST" action="/settings/stop">
     <button type="submit">Stop the server</button>
 </form>
+</body>
 
 {% endblock %}

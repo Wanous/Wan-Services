@@ -1,5 +1,6 @@
 import sys
 import time
+import threading
 
 from app.app import create_app
 from app.config_loader import load_config
@@ -28,23 +29,7 @@ def run_server():
         use_reloader=False
     )
 
-
 if __name__ == "__main__":
-    while True:
-        try:
+    run_server()
 
-            run_server()
 
-        except KeyboardInterrupt:
-            break
-
-        except SystemExit as e:
-            if e.code == 42:
-                print("[INFO] Restart requested")
-                time.sleep(1)
-                continue
-                
-
-            print("[INFO] Server stopped")
-            sys.exit(e.code)
-            break

@@ -1,4 +1,6 @@
 import os
+import time
+import threading
 
 from flask import (
     Blueprint,
@@ -210,13 +212,18 @@ def save_settings():
     return redirect(url_for("roads.settings"))
 
 
-@roads.route("/settings/restart", methods=["POST"])
-def restart_server():
-    #print("[INFO] Restart requested")
-    os._exit(42)
+#@roads.route("/settings/restart", methods=["POST"])
+#def restart_server():
+#   #print("[INFO] Restart requested")
+#    raise SystemExit(42)
 
 
 @roads.route("/settings/stop", methods=["POST"])
 def stop_server():
     #print("[INFO] Server stopped")
-    os._exit(0)
+    def shutdown():
+        time.sleep(0.5)
+        os._exit(0)
+    # Redirect before stopping the server (to reload the page at the right position)
+    threading.Thread(target=shutdown).start()
+    return redirect(url_for("roads.index"))

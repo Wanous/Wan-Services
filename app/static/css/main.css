@@ -107,6 +107,20 @@ body, html {
 
 }
 
+/* =======================
+    SETTINGS BUTTON
+======================= */
+
+.settings-btn {
+    position: fixed;
+    top: 13px;
+    right: 20px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #FF235E;
+    z-index: 1000;
+}
+
 
 /* =======================
         SMARTPHONE
