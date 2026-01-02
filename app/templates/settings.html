@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="/static/css/style.css">
+
+<h1>Settings</h1>
+
+<form method="POST" action="/settings/save">
+    <label>
+        Path to service data:
+        <input
+            type="text"
+            name="media_path"
+            value="{{ media_path }}"
+            placeholder="/path/to/services-data"
+            required
+        >
+    </label>
+
+    <br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+<hr>
+
+<form method="POST" action="/settings/restart">
+    <button type="submit">Apply and restart</button>
+</form>
+
+<form method="POST" action="/settings/stop">
+    <button type="submit">Stop the server</button>
+</form>
+
+{% endblock %}

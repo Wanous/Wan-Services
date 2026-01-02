@@ -214,6 +214,21 @@ h2, h1 span {
 }
 
 /* =======================
+   SETTINGS PAGE
+======================= */
+
+.settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #FF235E;
+    z-index: 1000;
+}
+
+
+/* =======================
    SMARTPHONE (2 COLONNES)
 ======================= */
 @media (max-width: 800px) {

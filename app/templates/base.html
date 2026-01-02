@@ -8,6 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <!-- Settings button -->
+        {% if enable_settings %}
+        <a href="/settings" class="settings-btn">⚙️</a>
+        {% endif %}
+
         <!-- Sidebar -->
         <nav class="sidebar">
             <h2>Services: </h2>
@@ -16,10 +21,10 @@
             </div>
             <ul class="nav-links">
                 <li class="{% if active_page == 'movies' %}active{% endif %}">
-                    <a href="{{ url_for('movies') }}">Movies</a>
+                    <a href="{{ url_for('roads.movies') }}">Movies</a>
                 </li>
                 <li class="{% if active_page == 'series' or active_page=='season_selection'%}active{% endif %}">
-                    <a href="{{ url_for('series') }}">Series</a>
+                    <a href="{{ url_for('roads.series') }}">Series</a>
                 </li>
             </ul>
         </nav>

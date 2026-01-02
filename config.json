@@ -1,0 +1,11 @@
+{
+  "profile": "pc",
+  "media_path": "C:\\Users\\marai\\Desktop\\GitHub\\Wan-Services\\services\\data",
+  "server": {
+    "host": "0.0.0.0",
+    "port": 5000
+  },
+  "ui": {
+    "enable_settings": true
+  }
+}
