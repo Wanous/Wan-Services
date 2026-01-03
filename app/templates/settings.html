@@ -34,6 +34,12 @@
 </form>
 
 <hr>
+
+<div class="server-info">
+    <p>Server running at: </p>
+    <code>http://{{ request.host }}</code>
+</div>
+
 <div class="settings-page-btn">
     <form method="POST" action="/settings/stop">
             <button type="submit">Stop the server</button>

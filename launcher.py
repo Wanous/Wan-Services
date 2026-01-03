@@ -1,6 +1,4 @@
-import sys
-import time
-import threading
+import webbrowser
 
 from app.app import create_app
 from app.config_loader import load_config
@@ -21,6 +19,9 @@ def run_server():
     print("===================================")
 
     app = create_app()
+
+    if config.get("profile") == "pc":
+        webbrowser.open(f"http://127.0.0.1:{port}")
 
     app.run(
         host=host,

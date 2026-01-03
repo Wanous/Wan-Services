@@ -9,9 +9,6 @@
     <p></p>
 </div>
 
-
-
-
 Wan Services is a lightweight, self-hosted multimedia web platform designed to stream movies and TV series through a clean and responsive web interface to any device connected to your local network.
 
 ## Supported Platforms

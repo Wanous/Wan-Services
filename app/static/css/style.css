@@ -225,6 +225,13 @@ h2, h1 span {
     padding-top: 20px;
 }
 
+.server-info{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
 /* =======================
    SMARTPHONE (2 COLONNES)
 ======================= */
