@@ -194,9 +194,12 @@ def episode_file(show, season, episode):
 @roads.route("/settings")
 def settings():
     config = load_config()
+    restart_required = request.args.get("restart_required") == "1"
+
     return render_template(
         "settings.html",
         media_path=config["media_path"],
+        restart_required=restart_required,
         active_page="settings"
     )
 
@@ -206,10 +209,18 @@ def save_settings():
     config = load_config()
     new_path = request.form.get("media_path", "").strip()
 
+    path_changed = new_path != config.get("media_path")
+
     config["media_path"] = new_path
     save_config(config)
 
-    return redirect(url_for("roads.settings"))
+    return redirect(
+        url_for(
+            "roads.settings",
+            restart_required="1" if path_changed else "0"
+        )
+    )
+
 
 
 #@roads.route("/settings/restart", methods=["POST"])

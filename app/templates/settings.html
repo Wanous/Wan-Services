@@ -18,16 +18,27 @@
         >
     </label>
 
-    <br><br>
-
+    {% if restart_required %}
+    <div class="restart-warning">
+        <p>
+            ⚠️ Le chemin des médias a été modifié.<br>
+            Un redémarrage du serveur est nécessaire pour appliquer les changements.
+        </p>
+    </div>
+    {% else %}
+        <br><br>
+    {% endif %}
+    
     <button type="submit">Save</button>
+
 </form>
 
 <hr>
-
-<form method="POST" action="/settings/stop">
-    <button type="submit">Stop the server</button>
-</form>
+<div class="settings-page-btn">
+    <form method="POST" action="/settings/stop">
+            <button type="submit">Stop the server</button>
+    </form>
+</div>
 </body>
 
 {% endblock %}

@@ -102,10 +102,24 @@ body, html {
     color: #aaa;
 }
 
-/* Responsive mobile */
-@media (max-width: 768px) {
 
+#clear-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-55%);
+    border: none;
+    background: transparent;
+    color: #FF235E;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
 }
+
+#clear-search:hover{
+    color: #fff;
+}
+
 
 /* =======================
     SETTINGS BUTTON

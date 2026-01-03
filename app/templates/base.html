@@ -35,23 +35,36 @@
         <div class="search-bar">
             <span class="search-icon">🔍</span>
             <input type="text" id="search-input" placeholder="Research...">
+            <button id="clear-search" type="button"><span>✕</span></button>
         </div>
         {% endif %}
 
         <!-- Search bar sript-->
-
         <script>
             const searchInput = document.getElementById("search-input");
+            const clearBtn = document.getElementById("clear-search");
 
             searchInput?.addEventListener("input", () => {
                 const query = searchInput.value.toLowerCase();
                 const cards = document.querySelectorAll(".card");
+                clearBtn.style.display = searchInput.value ? "block" : "none";
 
                 cards.forEach(card => {
                     const title = card.innerText.toLowerCase();
                     card.style.display = title.includes(query) ? "" : "none";
                 });
             });
+
+            clearBtn.addEventListener("click", () => {
+                searchInput.value = "";
+                clearBtn.style.display = "none";
+                const cards = document.querySelectorAll(".card");
+
+                cards.forEach(card => {
+                    const title = card.innerText.toLowerCase();
+                    card.style.display = title.includes("") ? "" : "none";
+                });
+            });    
         </script>
 
         <!-- Main content -->
