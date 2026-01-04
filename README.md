@@ -92,10 +92,10 @@ Installation guides are separated by platform:
 
 - 📄 **PC installation guide**  
   - See : [release](https://github.com/Wanous/Wan-Services/releases) for executable (.exe, .app, ...)
-  - See: `docs/INSTALL_PC.md` [here](https://github.com/Wanous/Wan-Services/docs/INSTALL_PC.md) to customize or extend the project
+  - See: `docs/INSTALL_PC.md` [here](https://github.com/Wanous/Wan-Services/blob/main/docs/INSTALL_PC.md) to customize or extend the project
 
 - 📄 **Raspberry Pi installation guide**  
-  See: `docs/INSTALL_RASPBERRYPI.md` [here](https://github.com/Wanous/Wan-Services/docs/INSTALL_PC.md)
+  See: `docs/INSTALL_RASPBERRYPI.md` [here](https://github.com/Wanous/Wan-Services/blob/main/docs/INSTALL_RASPBERRYPI.md)
 
 ## Note on privacy
 
