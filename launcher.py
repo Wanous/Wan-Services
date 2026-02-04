@@ -1,7 +1,7 @@
 import webbrowser
 
 from app.app import create_app
-from app.config_loader import load_config
+from app.config_loader import load_config, save_config
 
 
 def run_server():
