@@ -26,26 +26,23 @@ Wan Services is a lightweight, self-hosted multimedia web platform designed to s
 
 ## Features
 
-###  Movies streaming
+###  > Movies streaming
 - Browse your local movie library on a grid layout with covers. Plus the design is responsive (PC, tablet, phone)
 
 [image here of the movies page]
 
----
 
-### TV Series management
+### > TV Series management
 - Same grid layout with a automatic detection of series, seasons and episodes. When a series is selected, you are lead to a season selector with episode list.
 
 [image here of the series page]
 
----
 
-### Integrated search
+### > Integrated search
 - Floating search bar with real-time filtering and a clear button to reset search. It works on movies and series.
 
 [image here of the search bar]
 
----
 
 ### ⚙️ Settings panel
 - In the settings page you can change media directory and stop the server from the web interface.
@@ -54,7 +51,6 @@ Wan Services is a lightweight, self-hosted multimedia web platform designed to s
 
 [image here of the settings page]
 
----
 
 ### 🖥️ PC & Raspberry Pi support
 - **PC version**
@@ -65,7 +61,6 @@ Wan Services is a lightweight, self-hosted multimedia web platform designed to s
   - External storage support
   - Designed for headless usage
 
----
 
 ## 🗂️ Media structure
 
@@ -84,7 +79,6 @@ Media/
 ```
 You can place the `Media` folder anywhere on your computer or accessible external storage. Also you can call it whatever you want. Just respect the structure inside `Media`.
 
----
 
 ## Installation
 
