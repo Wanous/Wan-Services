@@ -35,5 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['assets\\icons\\icon.ico'], # .icns for macOS, .png for linux
+    icon=['assets\\icons\\icon.ico'],
 )
