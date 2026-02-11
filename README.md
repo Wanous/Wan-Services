@@ -94,7 +94,7 @@ Installation guides are separated by platform:
 ## Note on privacy
 
 Wan’Services:
-- Does **not** connect to the internet (unless if its for using the TMDB API)
+- Does **not** connect to the internet 
 - Does **not** collect any data
 - Runs entirely on your local network
 
