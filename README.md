@@ -103,3 +103,12 @@ Wan’Services:
 
 Wan’Services was created to provide a simple, local and private alternative to streaming platforms.
 If you wish to modify this project, please note that it is entirely open-source.
+
+## To-do
+
+[ ] Upgrade the side panel for PC version
+[ ] Add a tool to scan local films/series and create a Json with metadata and image associated with
+[ ] Menu before the player for films to display the metadata 
+[ ] Complete the season selector with metadata associated
+
+
