@@ -94,7 +94,7 @@ Installation guides are separated by platform:
 ## Note on privacy
 
 Wan’Services:
-- Does **not** connect to the internet
+- Does **not** connect to the internet (unless if its for using the TMDB API)
 - Does **not** collect any data
 - Runs entirely on your local network
 
@@ -106,9 +106,9 @@ If you wish to modify this project, please note that it is entirely open-source.
 
 ## To-do
 
-[ ] Upgrade the side panel for PC version
-[ ] Add a tool to scan local films/series and create a Json with metadata and image associated with
-[ ] Menu before the player for films to display the metadata 
-[ ] Complete the season selector with metadata associated
+* [ ] Upgrade the side panel for PC version
+* [ ] Add a tool to scan local films/series and create a Json with metadata and image associated with
+* [ ] Menu before the player for films to display the metadata 
+* [ ] Complete the season selector with metadata associated
 
 
